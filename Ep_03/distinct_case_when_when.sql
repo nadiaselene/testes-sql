@@ -7,6 +7,9 @@ select
                 then 'alimentos'
         when product_category_name in ('artes', 'artes_e_artesanato')
                 then 'artes'
+
+        when product_category_name like '%casa%'
+                then 'casa'
         else product_category_name
         end as categorias
 from products
