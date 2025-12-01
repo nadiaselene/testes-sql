@@ -14,7 +14,7 @@ select
 
     t3.order_status as 'status_pedido',
 
-    t3.order_purchase_timestamp as 'hora_data_pedido'
+    t3.order_approved_at as 'hora_data_pedido'
 
     
 FROM
@@ -26,7 +26,7 @@ LEFT JOIN orders as t3 ON t1.order_id = t3.order_id
 WHERE
     t3.order_status = 'delivered'
     and
-    t3.order_purchase_timestamp BETWEEN '2017-01-01 00:00:00' and '2017-12-31 23:59:59'
+    t3.order_approved_at BETWEEN '2017-01-01 00:00:00' and '2017-12-31 23:59:59'
 
 GROUP BY categorias
 
