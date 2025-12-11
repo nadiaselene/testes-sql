@@ -1,9 +1,12 @@
 select
+    t2.estado as 'estado',
+
     t1.product_id,
 
     t3.product_category_name,
     
     sum(t1.price) as 'receita',
+
 
 CASE WHEN
     t3.product_category_name like '%casa%'
@@ -41,7 +44,7 @@ CASE WHEN
 FROM
 order_items as t1
 
-LEFT JOIN sellers as t2 ON t1.seller_id = t2.seller_id 
+LEFT JOIN tb_dados_compra as t2 ON t1.order_id = t2.order_id 
 LEFT JOIN products as t3 ON t1.product_id = t3.product_id
 
 
